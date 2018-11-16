@@ -1,4 +1,4 @@
-// GLOBAL VARIABLES
+// GLOBAL VARIABLES=============================================================
 
 // Array object containing question/answer objects, each with 1 question, 4 answers and the gif to display
 var questions = [{
@@ -105,23 +105,25 @@ var intervalID;
 var answerGIF;
 
 // User answer variable
-var userAnswer;
+var userAnswer = "";
 
-// FUNCTIONS
+// User rank variable
+var userRank = 0;
 
-// Will be activated after start button clicked
-function startGame() {
-    // Reset answers correct
-    correctTotal = 0;
-    // Reset answers incorrect
-    incorrectTotal = 0;
-    // Reset answers timed out
-    timeoutTotal = 0;
-    // Set userAnswer to empty string
-    userAnswer = "";
-    // Display first question
-    displayQuestion();
-}
+// ==============================================================================
+
+// FUNCTIONS ====================================================================
+
+// Overall function flow
+    // Home screen displayed - click on start button fires displayQuestion();
+    // displayQuestion();
+        // clearInterval(intervalID);
+        // setTimeout(displayAnswer, 1000 * 30);
+        // decrement();
+    // displayAnswer(); fires from button click or setTimeout
+    // displayFinalResults(); fires when all questions have been asked
+    // restartGame(); fires when restart button is pushed;
+
 
 // Fires after start button clicked or automatically afer question answer screen shown
 function displayQuestion() {
@@ -178,9 +180,17 @@ function displayAnswer() {
     // Display GIF
     $("#gif-display").html("<img src=" + answerGIF + ".png>");
 
-    // Advance to next question in 5 seconds
-    setTimeout(displayQuestion, 1000 * 5);
-
+    // Set which screen to advance to in 7 seconds
+    if (questionsAsked === questions.length) {
+        // if all questions have been asked, go to results screen
+        setTimeout(displayFinalResults, 1000 * 7);
+        
+        } else {
+            // if all questions haven't been asked, go to next question
+            setTimeout(displayQuestion, 1000 * 7);
+        }
+    }
+ 
     // Check if answer was provided and correct
     if ((userAnswer) && (userAnswer === questions[questionsAsked].correct)) {
         // add to correct variable
@@ -223,13 +233,68 @@ function displayAnswer() {
     // Set userAnswer back to empty string
     userAnswer = "";
 
-    // if questions asked is equal to number of questions
-        // Show final results
-        // Calculate overall ranking
+// Function to show final results screen when all questions asked
+function displayFinalResults() {
+
+    // Clear interval so timer refreshes
+    clearInterval(intervalID);
+    
+    // Calculate, assign overall ranking
+        // If 100% correct:
+        if (correctTotal === (questions.length * .100)) {
+            userRank = "Top ranking text";
+        // If 90% correct:
+        } else if (correctTotal === (questions.length * .90)) {
+            userRank = "90% ranking text";
+        // If 75-89% correct:
+        } else if (correctTotal === (questions.length * .75)) {
+            userRank = "75-89% ranking text";
+        // If 50-74% correct:
+        } else if (correctTotal === (questions.length * .50)) {
+            userRank = "50-74% ranking text";
+        // If less than 50% correct:
+        } else {
+            userRank = "Below 50% text";
+        }
+
         // Display ranking
+        $("#overall-rating").text(userRank);
         // Display correct, incorrect, time out totals
-        // Display reset button
+        $("#overall-results").html("<h2>Your Results</h2><p><strong>Total correct: </strong>" + correctTotal
+        + "</p><p><strong>Total incorrect: </strong>" + incorrectTotal + "</p><p><strong>Total unanswered: </strong>" + timeoutTotal
+        + "</p>");
+        
+        // Display restart button           
 }
+
+// Function that runs on click of restart button
+function restartGame() {
+   // Empty text from results screen
+   $("#overall-rating").empty();
+   $("#overall-results").empty();
+  
+   // Reset all variables
+    correctTotal = 0;
+    incorrectTotal = 0;
+    timeoutTotal = 0;
+    questionsAsked = 0;
+    timer = 30;
+    intervalID;
+    answerGIF;
+    userAnswer = "";
+    userRank = 0;
+
+    // Display first question
+    displayQuestion();
+}
+
+// ================================================================================
+
+// CLICK FUNCTIONS ===============================================================
+// Click function for opening start button
+$("#start").on("click", function() {
+    displayQuestion();
+});
 
 // Click functions for user choice for all four answers
 $("#a1").on("click", function() {
@@ -264,11 +329,15 @@ $("#a4").on("click", function() {
     displayAnswer();
 });
 
-// Restart game
-// Reset all variables
-// Move straight to displayQuestion
+// Click function for restart button
+$("#restart").on("click", function() {
+    // Run function restartGame
+    restartGame();
+})
+
+
 
 // GAME PLAY============================================================
 $(document).ready(function () {
-    startGame();
+
 });
