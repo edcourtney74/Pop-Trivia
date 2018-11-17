@@ -35,7 +35,7 @@
                     <div id="question-text" class="question"></div>
 
                 <!-- Answer display - one button for each answer -->
-                <button type="button" class="btn btn-info btn-block text-left answer-button border border-light mt-3" id="a1"></button>
+                <button type="button" class="btn btn-info btn-block text-left answer-button border border-light mt-2" id="a1"></button>
                 <button type="button" class="btn btn-info btn-block text-left answer-button border border-light mt-0" id="a2"></button>
                 <button type="button" class="btn btn-info btn-block text-left answer-button border border-light mt-0" id="a3"></button>
                 <button type="button" class="btn btn-info btn-block text-left answer-button border border-light mt-0" id="a4"></button> 
@@ -46,21 +46,30 @@
                 <!-- Right, wrong or time out display -->
                 <h1 id="right-wrong" class="text-center"></h1>
 
-                <!-- Wrong or time out - don't show if right  -->
+                <!-- If correct answer, displays fun fact; otherwise shows correct answer  -->
                 <div id="right-answer"></div>
 
                 <!-- GIF display -->
-                <div id="gif-display" class="mt-5"></div>
+                <div id="gif-display" class="mt-3 mx-auto"></div>
 
                 <!-- Final Results Board -->
                 <!-- Rating given based on overall score -->
                 <div id="overall-rating"></div>
-
-                <!-- Display correct, incorrect, out of time answers to display -->
-                <div id="overall-results"></div>
-
-                <!-- Start over button -->
-                <button class="restart-button" id="restart"></button>
+                
+                <!-- New section to run GIF and results side-by-side -->
+                <div class="row">
+                    <!-- Display correct, incorrect, out of time answers to display -->
+                    <div class="col-md-4">
+                        <div id="overall-results">
+                        </div>
+                    </div>    
+                    <div class="col-md-6">
+                        <!-- GIF based on results -->
+                        <div id="gif-rating">
+                    </div>               
+                </div>
+                <!-- Restart button -->
+                <button type="button" id="restart" class="btn btn-primary restart-button ml-4 mt-4 mb-2">TRY AGAIN</button>
             </div>
         </div>
     </div>

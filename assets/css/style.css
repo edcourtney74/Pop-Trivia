@@ -1,6 +1,7 @@
 body {
     background-image: url("../images/seinfeld-background.jpg");
     background-size: 100%;
+    font-size: 18px;
 }
 
 img {
@@ -22,6 +23,11 @@ img {
     opacity: .9;
 }
 
+.final-gif {
+    width: 250px;
+    display: block;
+}
+
 .question {
     font-size: 25px;
 }
@@ -35,7 +41,7 @@ img {
     margin-top: 20px;
 }
 
-#start {
+#start, #restart {
     background-color: #84a7d1;
     border: none;
     width: 90%;

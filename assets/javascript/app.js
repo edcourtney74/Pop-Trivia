@@ -9,6 +9,7 @@ var questions = [{
     a4: "Writer for J. Peterman Catalog, assistant to Justin Pitt, editor at Pendant Publishing",
     correct: "a2",
     answertext: "Editor at Pendant Publishing, assistant to Justin Pitt, writer for J. Peterman Catalog",
+    funfact: "Elaine's tasks with Mr. Pitt included finding the right pair of socks, removing salt from his pretzel sticks and sharpening pencils."
 }, {
     q: "What soup did George order from the Soup Nazi?",
     a1: "Mulligatawny",
@@ -17,6 +18,7 @@ var questions = [{
     a4: "Gazpacho",
     correct: "a3",
     answertext: "Turkey chili",
+    funfact: "The soup vendor who the character was based on was referenced a few years before in the movie Sleepless in Seattle."
 }, {
     q: "When Newman’s mail truck catches on fire, what is he transporting?",
     a1: "Crates of fish",
@@ -25,14 +27,17 @@ var questions = [{
     a4: "David Berkowitz’s mail bag",
     correct: "a1",
     answertext: "Crates of fish",
+    funfact: "Newman was delivering supreme flounder to a Chinese restaurant, the restaurant that wouldn't deliver to Elaine's apartment."
+
 }, {
     q: "What song does Elaine dance to at her company party?",
     a1: "“Brick House” by The Commodores",
     a2: "“Get Down On It” by Kool & The Gang",
-    a3: "Don’t Stop Til You Get Enough",
+    a3: "'Don’t Stop Til You Get Enough' by Michael Jackson",
     a4: "“Shining Star” by Earth, Wind & Fire",
     correct: "a4",
     answertext: "“Shining Star” by Earth, Wind & Fire",
+    funfact: "Elaine's dance was based on the dancing of Saturday Night Live creator Lorne Michaels."
 }, {
     q: "In “The Chinese Restaurant,” what name does the restaurant host call out instead of 'Costanza'?",
     a1: "Kruger",
@@ -41,14 +46,18 @@ var questions = [{
     a4: "Vandelay",
     correct: "a3",
     answertext: "Cartwright",
+    funfact: "A writer claims that the name Cartwright was based on a character from the TV show Bonanza, which rhymes with Costanza."
+
 }, {
     q: "Why did Jerry and Donna break up?",
-    a1: "Jerry told his friends that she liked a Cotton Dockers commercial",
-    a2: "She shushed him and ate her peas one at a time",
-    a3: "He couldn’t remember her name",
-    a4: "He wouldn’t admit to watching Melrose Place",
+    a1: "She was upset that Jerry told his friends she liked the Cotton Dockers commercial.",
+    a2: "She shushed him and ate her peas one at a time.",
+    a3: "He couldn’t remember her name.",
+    a4: "He wouldn’t admit to watching Melrose Place.",
     correct: "a1",
-    answertext: "Jerry told his friends that she liked a Cotton Dockers commercial",
+    answertext: "She was upset that Jerry told his friends she liked the Cotton Dockers commercial.",
+    funfact: "Saturday Night Live also did a parody of the Cotton Dockers commercial, calling it Bad Idea jeans."
+
 }, {
     q: "In “The Susie,” George’s answering machine message is based off the theme song for what TV show?",
     a1: "The White Shadow",
@@ -57,6 +66,8 @@ var questions = [{
     a4: "The Greatest American Hero",
     correct: "a4",
     answertext: "The Greatest American Hero",
+    funfact: "'Believe It or Not', sung by Joey Scarbury, made it to No. 2 on the Billboard Hot 100."
+
 }, {
     q: "What is the name of the clown George hires to work at a children’s party?",
     a1: "Steve",
@@ -65,6 +76,8 @@ var questions = [{
     a4: "Phil",
     correct: "a2",
     answertext: "Eric",
+    funfact: "Eric the Clown was played by Jon Favreau, who went on to star in Swingers and direct Elf and Iron Man 1 & 2."
+
 }, {
     q: "The actor who portrayed Tim Whatley has NOT appeared in which show?",
     a1: "Breaking Bad",
@@ -73,6 +86,8 @@ var questions = [{
     a4: "How I Met Your Mother",
     correct: "a3",
     answertext: "Law & Order",
+    funfact: "Bryan Cranston won four Emmys as Walter White in Breaking Bad."
+
 }, {
     q: "What day is Festivus typically celebrated?",
     a1: "The first Thursday after Thanksgiving",
@@ -81,6 +96,8 @@ var questions = [{
     a4: "December 27",
     correct: "a2",
     answertext: "December 23",
+    funfact: "Festivus is an actual holiday created in the 60s by the father of one of the Seinfeld writers."
+
 }, {
     q: "In “The Dinner Party” (which aired in 1993), Jerry vomits for the first time since what year?",
     a1: "1972",
@@ -89,6 +106,8 @@ var questions = [{
     a4: "1990",
     correct: "a2",
     answertext: "1980",
+    funfact: "Jerry's streak lasted 13 years and 5 months."
+
 }, {
     q: "What baseball player spat on Kramer and Newman at a Mets game?",
     a1: "Roger McDowell",
@@ -97,6 +116,8 @@ var questions = [{
     a4: "Darryl Strawberry",
     correct: "a1",
     answertext: "Roger McDowell",
+    funfact: "Roger McDowell receives $13.52 in royalties every time this episode reruns."
+
 }, {
     q: "Which item does Babu Bhatt NOT say is a specialty of the Dream Cafe?",
     a1: "Tacos",
@@ -105,14 +126,18 @@ var questions = [{
     a4: "Philly cheesesteaks",
     correct: "a4",
     answertext: "Philly cheesesteaks",
+    funfact: "The character Babu is from Pakistan, but the actor Brian George is Israeli-English."
+
 }, {
     q: "Why did Jerry and Lisi break up?",
-    a1: "She had man hands",
-    a2: "He preferred to continue using a funny voice (heeeellllloooo)",
-    a3: "She was a sentence-finisher",
-    a4: "She thought she caught him picking his nose",
+    a1: "She had man hands.",
+    a2: "He preferred to continue using a funny voice (heeeellllloooo).",
+    a3: "She was a sentence-finisher.",
+    a4: "She thought she caught him picking his nose.",
     correct: "a3",
-    answertext: "She was a sentence-finisher",
+    answertext: "She was a sentence-finisher.",
+    funfact: "Jerry then tries to get back together with Lisi to avoid The Lopper."
+
 }, {
     q: "Who was the first person to find out that Cosmo was Kramer’s first name?",
     a1: "Jerry",
@@ -121,6 +146,7 @@ var questions = [{
     a4: "Newman",
     correct: "a2",
     answertext: "George",
+    funfact: "Kramer also took the aliases Dr./Prof. van Nostrand and H.E. Pennypacker."
 }];
 
 // Answer correct variable
@@ -136,7 +162,7 @@ var timeoutTotal = 0;
 var questionsAsked = 0;
 
 // Timer variable
-var timer = 30;
+var timer = 5;
 
 // IntervalID variable
 var intervalID = 0;
@@ -155,6 +181,9 @@ var userAnswer = "";
 
 // User rank variable
 var userRank = 0;
+
+// Final results GIF variable
+var finalGIF;
 
 // ==============================================================================
 
@@ -211,13 +240,12 @@ function displayQuestion() {
     
     // Clear interval so timer refreshes
     clearInterval(intervalID);
-    console.log("IntervalID: " + intervalID);
 
     // Set countdown for amount of time to answer
-    questionTimer = setTimeout(displayAnswer, 1000 * 30);
+    questionTimer = setTimeout(displayAnswer, 1000 * 5);
 
     // Reset timer to 30 seconds
-    timer = 30;
+    timer = 5;
     
     // Display 30-second countdown
     intervalID = setInterval(decrement, 1000);    
@@ -236,7 +264,6 @@ function displayQuestion() {
     $("#a2").text(questions[questionsAsked].a2);
     $("#a3").text(questions[questionsAsked].a3);
     $("#a4").text(questions[questionsAsked].a4);
-    
 }
 
 // Function to display answer on answer click or timeout
@@ -254,26 +281,27 @@ function displayAnswer() {
 
     // Create variable for GIF based on questionsAsked
     answerGIF = "assets/images/gif" + questionsAsked + ".gif";
-    console.log(answerGIF);
 
     // Set which screen to advance to in 7 seconds
-    if (questionsAsked === questions.length - 1) {
+    if (questionsAsked === (questions.length - 1)) {
         // if all questions have been asked, go to results screen
-        resultsTimer = setTimeout(displayFinalResults, 1000 * 7);
+        resultsTimer = setTimeout(displayFinalResults, 1000 * 2);
 
     } else {
         // if all questions haven't been asked, go to next question
-        resultsTimer = setTimeout(displayQuestion, 1000 * 7);
+        resultsTimer = setTimeout(displayQuestion, 1000 * 2);
     }
 
     // Check if answer was provided and correct
     if ((userAnswer) && (userAnswer === questions[questionsAsked].correct)) {
     // add to correct variable
     correctTotal++;
-    console.log("Oh yeah");
 
     // Display "Correct!"
     $("#right-wrong").text("Correct!");
+
+    // Display fun fact - only if correct
+    $("#right-answer").text(questions[questionsAsked].funfact);
 
     // Check if answer was provided but incorrect:
     } else if ((userAnswer) && (userAnswer !== questions[questionsAsked].correct)) {
@@ -284,7 +312,7 @@ function displayAnswer() {
     $("#right-wrong").text("Incorrect!");
 
     // Display correct answer
-    $("#right-answer").html("<h5> The correct answer: </h5><h3>" + questions[questionsAsked].answertext);
+    $("#right-answer").html("<h5>The correct answer: </h5><h3>" + questions[questionsAsked].answertext + "</h3>");
     
     // If answer wasn't submitted
     } else {
@@ -295,7 +323,7 @@ function displayAnswer() {
     $("#right-wrong").text("You ran out of time!");
 
     // Display correct answer
-    $("#right-answer").text("The correct answer was " + questions[questionsAsked].answertext);
+    $("#right-answer").html("<h5>The correct answer: </h5><h3>" + questions[questionsAsked].answertext + "</h3>");
     }
 
     // Display GIF
@@ -303,7 +331,6 @@ function displayAnswer() {
 
     // Add 1 to questionsAsked variable
     questionsAsked++;
-    console.log(questionsAsked);
 
     // Set userAnswer back to empty string
     userAnswer = "";
@@ -314,32 +341,48 @@ function displayFinalResults() {
 
     // Stop resultsTimer
     clearTimeout(resultsTimer);
+    stopTimer();
 
     // Clear info from answer screen
+    $("#time-display").empty();
     $("#right-wrong").empty();
     $("#gif-display").empty();
     $("#right-answer").empty();
+
+    // Change height of displaybox
+    $(".displaybox").css("height", "auto");
+
 
     // Calculate, assign overall ranking
     // If 100% correct:
     if (correctTotal === (questions.length * .100)) {
         userRank = "Hoochie mama! You know your Seinfeld trivia";
-        // If 90% correct:
+        finalGif = "assets/images/celebrate.gif"
+    // If 90% correct:
     } else if (correctTotal >= (questions.length * .90)) {
-        userRank = "That's gold, Jerry. Gold! You're close to an expert on Seinfeld";
-        // If 75-89% correct:
+        userRank = "That's gold, Jerry, gold! You're close to an expert on Seinfeld.";
+        finalGif = "assets/images/celebrate.gif"
+    // If 75-89% correct:
     } else if (correctTotal >= (questions.length * .70)) {
-        userRank = "Not bad. Go reward yourself with some Ovaltine and Drake's Coffe Cake";
-        // If 50-74% correct:
+        userRank = "Not bad. Go reward yourself with some Ovaltine and Drake's Coffe Cake.";
+        finalGif = "assets/images/celebrate.gif"
+    // If 50-74% correct:
     } else if (correctTotal >= (questions.length * .50)) {
         userRank = "That's a shame. Watching more Seinfeld could be a help to you.";
-        // If less than 50% correct:
+        finalGif = "assets/images/jail.gif"
+    // If less than 50% correct:
     } else {
         userRank = "No soup for you! Time to watch more Seinfeld.";
+        finalGif = "assets/images/jail.gif"
     }
-
+    console.log("User rank: " + userRank);
+    
     // Display ranking
-    $("#overall-rating").html("<h2 class='text-center'" + userRank + "</h2>");
+    $("#overall-rating").html("<h2 class='text-center'>" + userRank + "</h2>");
+    
+    // Display finalGif
+    $("#gif-rating").html("<img src='" + finalGif + "' class='final-gif float-left'</img>");
+
     // Display correct, incorrect, time out totals
     $("#overall-results").html("<h4>Your Results</h4><p><strong>Total correct: </strong>" + correctTotal
         + "</p><p><strong>Total incorrect: </strong>" + incorrectTotal + "</p><p><strong>Total unanswered: </strong>" + timeoutTotal
@@ -351,20 +394,27 @@ function displayFinalResults() {
 
 // Function that runs on click of restart button
 function restartGame() {
+    // Make display box bigger
+    $(".displaybox").css("height", "500px")
+    
     // Empty text from results screen
     $("#overall-rating").empty();
     $("#overall-results").empty();
+    $("#gif-rating").empty();
 
     // Reset all variables
     correctTotal = 0;
     incorrectTotal = 0;
     timeoutTotal = 0;
     questionsAsked = 0;
-    timer = 30;
+    timer = 5;
     intervalID;
     answerGIF;
     userAnswer = "";
     userRank = 0;
+
+    // Display restart button
+    $("#restart").css("display", "none");
 
     // Display first question
     displayQuestion();
