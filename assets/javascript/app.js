@@ -189,7 +189,21 @@ function startGame() {
 function decrement() {
     // Decrease timer by 1;
     timer--;
+
+    // Show timer in time-display ID
+    $("#time-display").text("Time remaining: " + timer);
+
+    // If the timer hits 0
+    if (timer === 0) {
+        // Display answer
+        displayAnswer();
+
+        // run stopTimer function 
+        stopTimer();
+    }
 }
+
+
 
 function displayQuestion() {
     // Clear resultsTimer - moved from answer page to next question
@@ -197,16 +211,17 @@ function displayQuestion() {
     
     // Clear interval so timer refreshes
     clearInterval(intervalID);
+    console.log("IntervalID: " + intervalID);
 
     // Set countdown for amount of time to answer
     questionTimer = setTimeout(displayAnswer, 1000 * 30);
 
-    // Display 30-second countdown
-    intervalID = setInterval(decrement, 1000);
-
-    // Show timer in time-display ID
-    $("#time-display").text("Time remaining: " + timer);
+    // Reset timer to 30 seconds
+    timer = 30;
     
+    // Display 30-second countdown
+    intervalID = setInterval(decrement, 1000);    
+
     // Empty text from previous screen
     $("#right-wrong").empty();
     $("#gif-display").empty();
@@ -222,11 +237,6 @@ function displayQuestion() {
     $("#a3").text(questions[questionsAsked].a3);
     $("#a4").text(questions[questionsAsked].a4);
     
-    // If the timer hits 0
-    if (timer === 0) {
-        // Display answer
-        displayAnswer();
-    }
 }
 
 // Function to display answer on answer click or timeout
@@ -294,9 +304,6 @@ function displayAnswer() {
     // Add 1 to questionsAsked variable
     questionsAsked++;
     console.log(questionsAsked);
-
-    // Reset timer - set to 31 because it takes 1 second to display 
-    timer = 31;
 
     // Set userAnswer back to empty string
     userAnswer = "";
