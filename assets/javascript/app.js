@@ -162,7 +162,7 @@ var timeoutTotal = 0;
 var questionsAsked = 0;
 
 // Timer variable
-var timer = 5;
+var timer = 30;
 
 // IntervalID variable
 var intervalID = 0;
@@ -170,7 +170,7 @@ var intervalID = 0;
 // setTimeout variable for 30-second timer
 var questionTimer;
 
-// setTimeout variable for 7-second timer to move from results screen
+// setTimeout variable for 8-second timer to move from results screen
 var resultsTimer;
 
 // GIF variable
@@ -232,8 +232,6 @@ function decrement() {
     }
 }
 
-
-
 function displayQuestion() {
     // Clear resultsTimer - moved from answer page to next question
     clearTimeout(resultsTimer);
@@ -242,10 +240,10 @@ function displayQuestion() {
     clearInterval(intervalID);
 
     // Set countdown for amount of time to answer
-    questionTimer = setTimeout(displayAnswer, 1000 * 5);
+    questionTimer = setTimeout(displayAnswer, 1000 * 30);
 
     // Reset timer to 30 seconds
-    timer = 5;
+    timer = 30;
     
     // Display 30-second countdown
     intervalID = setInterval(decrement, 1000);    
@@ -285,11 +283,11 @@ function displayAnswer() {
     // Set which screen to advance to in 7 seconds
     if (questionsAsked === (questions.length - 1)) {
         // if all questions have been asked, go to results screen
-        resultsTimer = setTimeout(displayFinalResults, 1000 * 2);
+        resultsTimer = setTimeout(displayFinalResults, 1000 * 8);
 
     } else {
         // if all questions haven't been asked, go to next question
-        resultsTimer = setTimeout(displayQuestion, 1000 * 2);
+        resultsTimer = setTimeout(displayQuestion, 1000 * 8);
     }
 
     // Check if answer was provided and correct
@@ -355,8 +353,8 @@ function displayFinalResults() {
 
     // Calculate, assign overall ranking
     // If 100% correct:
-    if (correctTotal === (questions.length * .100)) {
-        userRank = "Hoochie mama! You know your Seinfeld trivia";
+    if (correctTotal === (questions.length * 1)) {
+        userRank = "Hoochie mama! You know your Seinfeld trivia.";
         finalGif = "assets/images/celebrate.gif"
     // If 90% correct:
     } else if (correctTotal >= (questions.length * .90)) {
@@ -407,7 +405,7 @@ function restartGame() {
     incorrectTotal = 0;
     timeoutTotal = 0;
     questionsAsked = 0;
-    timer = 5;
+    timer = 30;
     intervalID;
     answerGIF;
     userAnswer = "";
