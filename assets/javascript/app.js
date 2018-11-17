@@ -9,7 +9,6 @@ var questions = [{
     a4: "Writer for J. Peterman Catalog, assistant to Justin Pitt, editor at Pendant Publishing",
     correct: "a2",
     answertext: "Editor at Pendant Publishing, assistant to Justin Pitt, writer for J. Peterman Catalog",
-    gif: "../images/elaine-pitt.gif)",
 }, {
     q: "What soup did George order from the Soup Nazi?",
     a1: "Mulligatawny",
@@ -18,7 +17,6 @@ var questions = [{
     a4: "Gazpacho",
     correct: "a3",
     answertext: "Turkey chili",
-    gif: "../images/george-soup.gif)",
 }, {
     q: "When Newman’s mail truck catches on fire, what is he transporting?",
     a1: "Crates of fish",
@@ -27,7 +25,6 @@ var questions = [{
     a4: "David Berkowitz’s mail bag",
     correct: "a1",
     answertext: "Crates of fish",
-    gif: "../images/newman-truck.gif)"
 }, {
     q: "What song does Elaine dance to at her company party?",
     a1: "“Brick House” by The Commodores",
@@ -36,7 +33,6 @@ var questions = [{
     a4: "“Shining Star” by Earth, Wind & Fire",
     correct: "a4",
     answertext: "“Shining Star” by Earth, Wind & Fire",
-    gif: "../images/elaine-dance.gif)",
 }, {
     q: "In “The Chinese Restaurant,” what name does the restaurant host call out instead of 'Costanza'?",
     a1: "Kruger",
@@ -45,7 +41,6 @@ var questions = [{
     a4: "Vandelay",
     correct: "a3",
     answertext: "Cartwright",
-    gif: "../images/george-restaurant.gif)",
 }, {
     q: "Why did Jerry and Donna break up?",
     a1: "Jerry told his friends that she liked a Cotton Dockers commercial",
@@ -54,7 +49,6 @@ var questions = [{
     a4: "He wouldn’t admit to watching Melrose Place",
     correct: "a1",
     answertext: "Jerry told his friends that she liked a Cotton Dockers commercial",
-    gif: "../images/jerry-donna.jpg)",
 }, {
     q: "In “The Susie,” George’s answering machine message is based off the theme song for what TV show?",
     a1: "The White Shadow",
@@ -63,7 +57,6 @@ var questions = [{
     a4: "The Greatest American Hero",
     correct: "a4",
     answertext: "The Greatest American Hero",
-    gif: "../images/george-answering-machine.gif)",
 }, {
     q: "What is the name of the clown George hires to work at a children’s party?",
     a1: "Steve",
@@ -72,7 +65,6 @@ var questions = [{
     a4: "Phil",
     correct: "a2",
     answertext: "Eric",
-    gif: "../images/george-clown.gif)",
 }, {
     q: "The actor who portrayed Tim Whatley has NOT appeared in which show?",
     a1: "Breaking Bad",
@@ -81,7 +73,6 @@ var questions = [{
     a4: "How I Met Your Mother",
     correct: "a3",
     answertext: "Law & Order",
-    gif: "../images/tim-whatley.gif)",
 }, {
     q: "What day is Festivus typically celebrated?",
     a1: "The first Thursday after Thanksgiving",
@@ -90,7 +81,6 @@ var questions = [{
     a4: "December 27",
     correct: "a2",
     answertext: "December 23",
-    gif: "../images/festivus.gif)",
 }, {
     q: "In “The Dinner Party” (which aired in 1993), Jerry vomits for the first time since what year?",
     a1: "1972",
@@ -99,7 +89,6 @@ var questions = [{
     a4: "1990",
     correct: "a2",
     answertext: "1980",
-    gif: "../images/jerry-cookie.gif)",
 }, {
     q: "What baseball player spat on Kramer and Newman at a Mets game?",
     a1: "Roger McDowell",
@@ -108,7 +97,6 @@ var questions = [{
     a4: "Darryl Strawberry",
     correct: "a1",
     answertext: "Roger McDowell",
-    gif: "../images/spitter.gif)",
 }, {
     q: "Which item does Babu Bhatt NOT say is a specialty of the Dream Cafe?",
     a1: "Tacos",
@@ -117,7 +105,6 @@ var questions = [{
     a4: "Philly cheesesteaks",
     correct: "a4",
     answertext: "Philly cheesesteaks",
-    gif: "../images/babu.gif)",
 }, {
     q: "Why did Jerry and Lisi break up?",
     a1: "She had man hands",
@@ -126,7 +113,6 @@ var questions = [{
     a4: "She thought she caught him picking his nose",
     correct: "a3",
     answertext: "She was a sentence-finisher",
-    gif: "../images/jerry-lisi.gif)",
 }, {
     q: "Who was the first person to find out that Cosmo was Kramer’s first name?",
     a1: "Jerry",
@@ -135,7 +121,6 @@ var questions = [{
     a4: "Newman",
     correct: "a2",
     answertext: "George",
-    gif: "../images/george-kramer.gif)",
 }];
 
 // Answer correct variable
@@ -154,7 +139,13 @@ var questionsAsked = 0;
 var timer = 30;
 
 // IntervalID variable
-var intervalID;
+var intervalID = 0;
+
+// setTimeout variable for 30-second timer
+var questionTimer;
+
+// setTimeout variable for 7-second timer to move from results screen
+var resultsTimer;
 
 // GIF variable
 var answerGIF;
@@ -170,7 +161,7 @@ var userRank = 0;
 // FUNCTIONS ====================================================================
 
 // Overall function flow
-// Home screen displayed - click on start button fires displayQuestion();
+// startGame() - Home screen displayed - click on start button fires displayQuestion();
 // displayQuestion();
 // clearInterval(intervalID);
 // setTimeout(displayAnswer, 1000 * 30);
@@ -181,37 +172,56 @@ var userRank = 0;
 
 
 // Fires after start button clicked or automatically afer question answer screen shown
-function displayQuestion() {
-    // Empty text from previous screen
+// Function that runs on click of restart button
+function startGame() {
+    // Empty text from results screen
+    $("#overall-rating").empty();
+    $("#overall-results").empty();
     $("#right-wrong").empty();
     $("#gif-display").empty();
     $("#right-answer").empty();
-
-    // Display question and answers from questions array using questionsAsked variable as index
-    $("#question-text").text(questions[questionsAsked].q);
-    $("#a1").text(questions[questionsAsked].a1);
-    $("#a2").text(questions[questionsAsked].a2);
-    $("#a3").text(questions[questionsAsked].a3);
-    $("#a4").text(questions[questionsAsked].a4);
-
-    // Clear interval so timer refreshes
-    clearInterval(intervalID);
-
-    // Start 30-second countdown
-    setTimeout(displayAnswer, 1000 * 30);
-
-    // Display 30-second countdown
-    intervalID = setInterval(decrement, 1000);
+    $("#time-display").empty();
+    $("#question-text").empty();
+    $(".answer-button").empty();     
 }
 
 // Function to decrease countdown clock by 1 second
 function decrement() {
     // Decrease timer by 1;
     timer--;
+}
+
+function displayQuestion() {
+    // Clear resultsTimer - moved from answer page to next question
+    clearTimeout(resultsTimer);
+    
+    // Clear interval so timer refreshes
+    clearInterval(intervalID);
+
+    // Set countdown for amount of time to answer
+    questionTimer = setTimeout(displayAnswer, 1000 * 30);
+
+    // Display 30-second countdown
+    intervalID = setInterval(decrement, 1000);
 
     // Show timer in time-display ID
     $("#time-display").text("Time remaining: " + timer);
+    
+    // Empty text from previous screen
+    $("#right-wrong").empty();
+    $("#gif-display").empty();
+    $("#right-answer").empty();
 
+    // Make answer buttons visible again
+    $(".answer-button").css("display", "block");
+    
+    // Display question and answers from questions array using questionsAsked variable as index
+    $("#question-text").text(questions[questionsAsked].q);
+    $("#a1").text(questions[questionsAsked].a1);
+    $("#a2").text(questions[questionsAsked].a2);
+    $("#a3").text(questions[questionsAsked].a3);
+    $("#a4").text(questions[questionsAsked].a4);
+    
     // If the timer hits 0
     if (timer === 0) {
         // Display answer
@@ -221,33 +231,33 @@ function decrement() {
 
 // Function to display answer on answer click or timeout
 function displayAnswer() {
-    // Remove question text
+    // Clear questionTimer
+    clearTimeout(questionTimer);
+    
+    // Remove question-screen text
     $("#time-display").empty();
     $("#question-text").empty();
-    $("#a1").empty();
-    $("#a2").empty();
-    $("#a3").empty();
-    $("#a4").empty();
+    $(".answer-button").empty();
+
+    // Hide answer buttons
+    $(".answer-button").css("display", "none");
 
     // Create variable for GIF based on questionsAsked
-    answerGIF = "assets/images/crystal" + questionsAsked;
-
-    // Display GIF
-    $("#gif-display").html("<img src=" + answerGIF + ".png>");
+    answerGIF = "assets/images/gif" + questionsAsked + ".gif";
+    console.log(answerGIF);
 
     // Set which screen to advance to in 7 seconds
-    if (questionsAsked === questions.length) {
+    if (questionsAsked === questions.length - 1) {
         // if all questions have been asked, go to results screen
-        setTimeout(displayFinalResults, 1000 * 7);
+        resultsTimer = setTimeout(displayFinalResults, 1000 * 7);
 
     } else {
         // if all questions haven't been asked, go to next question
-        setTimeout(displayQuestion, 1000 * 7);
+        resultsTimer = setTimeout(displayQuestion, 1000 * 7);
     }
-}
 
-// Check if answer was provided and correct
-if ((userAnswer) && (userAnswer === questions[questionsAsked].correct)) {
+    // Check if answer was provided and correct
+    if ((userAnswer) && (userAnswer === questions[questionsAsked].correct)) {
     // add to correct variable
     correctTotal++;
     console.log("Oh yeah");
@@ -256,7 +266,7 @@ if ((userAnswer) && (userAnswer === questions[questionsAsked].correct)) {
     $("#right-wrong").text("Correct!");
 
     // Check if answer was provided but incorrect:
-} else if ((userAnswer) && (userAnswer !== questions[questionsAsked].correct)) {
+    } else if ((userAnswer) && (userAnswer !== questions[questionsAsked].correct)) {
     // add to incorrect variable
     incorrectTotal++;
 
@@ -264,10 +274,10 @@ if ((userAnswer) && (userAnswer === questions[questionsAsked].correct)) {
     $("#right-wrong").text("Incorrect!");
 
     // Display correct answer
-    $("#right-answer").text("The correct answer was " + questions[questionsAsked].answertext);
-
+    $("#right-answer").html("<h5> The correct answer: </h5><h3>" + questions[questionsAsked].answertext);
+    
     // If answer wasn't submitted
-} else {
+    } else {
     // add to timeout variable
     timeoutTotal++;
 
@@ -276,23 +286,32 @@ if ((userAnswer) && (userAnswer === questions[questionsAsked].correct)) {
 
     // Display correct answer
     $("#right-answer").text("The correct answer was " + questions[questionsAsked].answertext);
+    }
+
+    // Display GIF
+    $("#gif-display").html("<img class='mx-auto light-border' src=" + answerGIF + ">");
+
+    // Add 1 to questionsAsked variable
+    questionsAsked++;
+    console.log(questionsAsked);
+
+    // Reset timer - set to 31 because it takes 1 second to display 
+    timer = 31;
+
+    // Set userAnswer back to empty string
+    userAnswer = "";
 }
-
-// Add 1 to questionsAsked variable
-questionsAsked++;
-console.log(questionsAsked);
-
-// Reset timer
-timer = 30;
-
-// Set userAnswer back to empty string
-userAnswer = "";
 
 // Function to show final results screen when all questions asked
 function displayFinalResults() {
 
-    // Clear interval so timer refreshes
-    clearInterval(intervalID);
+    // Stop resultsTimer
+    clearTimeout(resultsTimer);
+
+    // Clear info from answer screen
+    $("#right-wrong").empty();
+    $("#gif-display").empty();
+    $("#right-answer").empty();
 
     // Calculate, assign overall ranking
     // If 100% correct:
@@ -313,13 +332,14 @@ function displayFinalResults() {
     }
 
     // Display ranking
-    $("#overall-rating").text(userRank);
+    $("#overall-rating").html("<h2 class='text-center'" + userRank + "</h2>");
     // Display correct, incorrect, time out totals
-    $("#overall-results").html("<h2>Your Results</h2><p><strong>Total correct: </strong>" + correctTotal
+    $("#overall-results").html("<h4>Your Results</h4><p><strong>Total correct: </strong>" + correctTotal
         + "</p><p><strong>Total incorrect: </strong>" + incorrectTotal + "</p><p><strong>Total unanswered: </strong>" + timeoutTotal
         + "</p>");
 
-    // Display restart button           
+    // Display restart button
+    $("#restart").css("display", "block");
 }
 
 // Function that runs on click of restart button
@@ -343,16 +363,38 @@ function restartGame() {
     displayQuestion();
 }
 
+function stopTimer () {
+    clearTimeout(questionTimer);
+    clearInterval(intervalID);
+}
+
 // ================================================================================
 
 // CLICK FUNCTIONS ===============================================================
 // Click function for opening start button
 $("#start").on("click", function () {
+
+    // Empty page title - won't need again 
+    $(".start-title").empty();
+
+    // Hide start button - won't need again
+    $("#start").css("display", "none");
+
+    // Move display box up on screen
+    $(".displaybox").css("margin-top", "70px")
+    
+    // Make display box bigger
+    $(".displaybox").css("height", "500px")
+
+    // Displays first question
     displayQuestion();
 });
 
 // Click functions for user choice for all four answers
 $("#a1").on("click", function () {
+    // Run function to stop timer
+    stopTimer();
+   
     // Set user's answer to a variable
     userAnswer = "a1";
 
@@ -361,6 +403,9 @@ $("#a1").on("click", function () {
 });
 
 $("#a2").on("click", function () {
+     // Run function to stop timer
+     stopTimer();
+    
     // Set user's answer to a variable
     userAnswer = "a2";
 
@@ -369,6 +414,9 @@ $("#a2").on("click", function () {
 });
 
 $("#a3").on("click", function () {
+    // Run function to stop timer
+     stopTimer();
+     
     // Set user's answer to a variable
     userAnswer = "a3";
 
@@ -377,6 +425,9 @@ $("#a3").on("click", function () {
 });
 
 $("#a4").on("click", function () {
+    // Run function to stop timer
+     stopTimer();
+    
     // Set user's answer to a variable
     userAnswer = "a4";
 
@@ -394,5 +445,5 @@ $("#restart").on("click", function () {
 
 // GAME PLAY============================================================
 $(document).ready(function () {
-
+    startGame();
 });

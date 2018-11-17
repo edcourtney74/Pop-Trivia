@@ -4,12 +4,40 @@ body {
 }
 
 img {
-    max-width: 200px;
+    display: block;
+    width: 400px;
+}
+
+.answer-button {
+    display: none;
+    background-color: #84a7d1;
+    color: black;
+    padding: 20px;
 }
 
 .displaybox {
-    background-color: white;
-    height: 500px;
-    margin: 70px 0px 0px 50px;
+    background-color:#c7c0c2;
+    height: auto;
+    margin: 140px 0px 0px 50px;
+    opacity: .9;
+}
 
+.question {
+    font-size: 25px;
+}
+
+.restart-button {
+    display: none;
+}
+
+#right-answer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#start {
+    background-color: #84a7d1;
+    border: none;
+    width: 90%;
+    font-size: 30px;
 }
