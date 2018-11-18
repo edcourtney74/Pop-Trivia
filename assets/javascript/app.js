@@ -189,18 +189,6 @@ var finalGIF;
 
 // FUNCTIONS ====================================================================
 
-// Overall function flow
-// startGame() - Home screen displayed - click on start button fires displayQuestion();
-// displayQuestion();
-// clearInterval(intervalID);
-// setTimeout(displayAnswer, 1000 * 30);
-// decrement();
-// displayAnswer(); fires from button click or setTimeout
-// displayFinalResults(); fires when all questions have been asked
-// restartGame(); fires when restart button is pushed;
-
-
-// Fires after start button clicked or automatically afer question answer screen shown
 // Function that runs on click of restart button
 function startGame() {
     // Empty text from results screen
@@ -216,38 +204,43 @@ function startGame() {
 
 // Function to decrease countdown clock by 1 second
 function decrement() {
+    // Show timer in time-display ID
+    $("#time-display").text("Time remaining: " + timer);
+    
     // Decrease timer by 1;
     timer--;
 
-    // Show timer in time-display ID
-    $("#time-display").text("Time remaining: " + timer);
-
     // If the timer hits 0
     if (timer === 0) {
-        // Display answer
-        displayAnswer();
+    // Display answer
+    displayAnswer();
 
-        // run stopTimer function 
-        stopTimer();
+    // run stopTimer function 
+    stopTimer();
     }
 }
 
-function displayQuestion() {
-    // Clear resultsTimer - moved from answer page to next question
+function runTimer() {
+    // Clear resultsTimer - was set to move from question page to answer page
     clearTimeout(resultsTimer);
     
     // Clear interval so timer refreshes
     clearInterval(intervalID);
 
+    // Reset timer to 30 seconds
+    timer = 30;
+
     // Set countdown for amount of time to answer
     questionTimer = setTimeout(displayAnswer, 1000 * 30);
 
-    // Reset timer to 30 seconds
-    timer = 30;
-    
     // Display 30-second countdown
     intervalID = setInterval(decrement, 1000);    
 
+    // Display next question
+    displayQuestion();
+}
+
+function displayQuestion() {
     // Empty text from previous screen
     $("#right-wrong").empty();
     $("#gif-display").empty();
@@ -287,7 +280,7 @@ function displayAnswer() {
 
     } else {
         // if all questions haven't been asked, go to next question
-        resultsTimer = setTimeout(displayQuestion, 1000 * 8);
+        resultsTimer = setTimeout(runTimer, 1000 * 8);
     }
 
     // Check if answer was provided and correct
@@ -415,7 +408,7 @@ function restartGame() {
     $("#restart").css("display", "none");
 
     // Display first question
-    displayQuestion();
+    runTimer();
 }
 
 function stopTimer () {
@@ -442,7 +435,7 @@ $("#start").on("click", function () {
     $(".displaybox").css("height", "500px")
 
     // Displays first question
-    displayQuestion();
+    runTimer();
 });
 
 // Click functions for user choice for all four answers
