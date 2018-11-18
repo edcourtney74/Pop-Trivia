@@ -20,13 +20,13 @@ Think you're a big Seinfeld fan? Try this quiz based on the minutiae of Seinfeld
   * A restart button appears that allows the user to try again.
   ***
 ### Start screen
-![Start screen photo](https://github.com/edcourtney74/TriviaGame/blob/master/assets/images/start-screen.PNG "Start screen")
+![Start screen photo](https://github.com/edcourtney74/TriviaGame/master/assets/images/start-screen.PNG "Start screen")
 
 ### Question screen
-![Question screen photo](https://github.com/edcourtney74/TriviaGame/blob/master/assets/images/question-screen.PNG "Question screen")
+![Question screen photo](https://github.com/edcourtney74/TriviaGame/master/assets/images/question-screen.PNG "Question screen")
 
 ### Answer screen
-![Answer screen photo](https://github.com/edcourtney74/TriviaGame/blob/master/assets/images/answer-screen.PNG "Answer screen")
+![Answer screen photo](https://github.com/edcourtney74/TriviaGame/master/assets/images/answer-screen.PNG "Answer screen")
 
 ### Results screen
-![Results screen photo](https://github.com/edcourtney74/TriviaGame/blob/master/assets/images/results-screen.PNG "Results screen")
+![Results screen photo](https://github.com/edcourtney74/TriviaGame/master/assets/images/results-screen.PNG "Results screen")
