@@ -162,7 +162,7 @@ var timeoutTotal = 0;
 var questionsAsked = 0;
 
 // Timer variable
-var timer = 30;
+var timer = 8;
 
 // IntervalID variable
 var intervalID = 0;
@@ -228,10 +228,10 @@ function runTimer() {
     clearInterval(intervalID);
 
     // Reset timer to 30 seconds
-    timer = 30;
+    timer = 8;
 
     // Set countdown for amount of time to answer
-    questionTimer = setTimeout(displayAnswer, 1000 * 30);
+    questionTimer = setTimeout(displayAnswer, 1000 * 8);
 
     // Display 30-second countdown
     intervalID = setInterval(decrement, 1000);    
@@ -345,22 +345,18 @@ function displayFinalResults() {
 
 
     // Calculate, assign overall ranking
-    // If 100% correct:
-    if (correctTotal === (questions.length * 1)) {
+    // If 90% correct:
+    if (correctTotal >= (questions.length * .90)) {
         userRank = "Hoochie mama! You know your Seinfeld trivia.";
         finalGif = "assets/images/celebrate.gif"
-    // If 90% correct:
-    } else if (correctTotal >= (questions.length * .90)) {
-        userRank = "That's gold, Jerry, gold! You're close to an expert on Seinfeld.";
-        finalGif = "assets/images/celebrate.gif"
     // If 75-89% correct:
-    } else if (correctTotal >= (questions.length * .70)) {
-        userRank = "Not bad. Go reward yourself with some Ovaltine and Drake's Coffe Cake.";
+    } else if (correctTotal >= (questions.length * .75)) {
+        userRank = "That's gold, Jerry, gold! You're close to an expert on Seinfeld.";
         finalGif = "assets/images/celebrate.gif"
     // If 50-74% correct:
     } else if (correctTotal >= (questions.length * .50)) {
-        userRank = "That's a shame. Watching more Seinfeld could be a help to you.";
-        finalGif = "assets/images/jail.gif"
+        userRank = "Not bad. Go reward yourself with some Ovaltine and Drake's Coffe Cake.";
+        finalGif = "assets/images/celebrate.gif"
     // If less than 50% correct:
     } else {
         userRank = "No soup for you! Time to watch more Seinfeld.";
@@ -398,7 +394,7 @@ function restartGame() {
     incorrectTotal = 0;
     timeoutTotal = 0;
     questionsAsked = 0;
-    timer = 30;
+    timer = 8;
     intervalID;
     answerGIF;
     userAnswer = "";
