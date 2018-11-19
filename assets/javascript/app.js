@@ -162,7 +162,7 @@ var timeoutTotal = 0;
 var questionsAsked = 0;
 
 // Timer variable
-var timer = 8;
+var timer = 30;
 
 // IntervalID variable
 var intervalID = 0;
@@ -204,19 +204,20 @@ function startGame() {
 
 // Function to decrease countdown clock by 1 second
 function decrement() {
-    // Show timer in time-display ID
-    $("#time-display").text("Time remaining: " + timer);
     
     // Decrease timer by 1;
     timer--;
 
+    // Show timer in time-display ID
+    $("#time-display").text("Time remaining: " + timer);
+    
     // If the timer hits 0
     if (timer === 0) {
-    // Display answer
-    displayAnswer();
-
-    // run stopTimer function 
-    stopTimer();
+        // Display answer
+        displayAnswer();
+        
+        // run stopTimer function 
+        stopTimer();
     }
 }
 
@@ -226,21 +227,25 @@ function runTimer() {
     
     // Clear interval so timer refreshes
     clearInterval(intervalID);
-
+    
     // Reset timer to 30 seconds
-    timer = 8;
-
+    timer = 30;
+    
     // Set countdown for amount of time to answer
-    questionTimer = setTimeout(displayAnswer, 1000 * 8);
-
+    questionTimer = setTimeout(displayAnswer, 1000 * 30);
+    
     // Display 30-second countdown
-    intervalID = setInterval(decrement, 1000);    
-
+    intervalID = setInterval(decrement, 1000);
+    
+    // Show timer in time-display ID
+    $("#time-display").text("Time remaining: " + timer);
+    
     // Display next question
     displayQuestion();
 }
 
 function displayQuestion() {
+
     // Empty text from previous screen
     $("#right-wrong").empty();
     $("#gif-display").empty();
@@ -276,11 +281,11 @@ function displayAnswer() {
     // Set which screen to advance to in 7 seconds
     if (questionsAsked === (questions.length - 1)) {
         // if all questions have been asked, go to results screen
-        resultsTimer = setTimeout(displayFinalResults, 1000 * 8);
+        resultsTimer = setTimeout(displayFinalResults, 1000 * 30);
 
     } else {
         // if all questions haven't been asked, go to next question
-        resultsTimer = setTimeout(runTimer, 1000 * 8);
+        resultsTimer = setTimeout(runTimer, 1000 * 30);
     }
 
     // Check if answer was provided and correct
@@ -394,7 +399,7 @@ function restartGame() {
     incorrectTotal = 0;
     timeoutTotal = 0;
     questionsAsked = 0;
-    timer = 8;
+    timer = 30;
     intervalID;
     answerGIF;
     userAnswer = "";
