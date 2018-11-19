@@ -278,7 +278,7 @@ function displayAnswer() {
     // Create variable for GIF based on questionsAsked
     answerGIF = "assets/images/gif" + questionsAsked + ".gif";
 
-    // Set which screen to advance to in 7 seconds
+    // Set which screen to advance to in 8 seconds
     if (questionsAsked === (questions.length - 1)) {
         // if all questions have been asked, go to results screen
         resultsTimer = setTimeout(displayFinalResults, 1000 * 8);
