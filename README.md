@@ -1,5 +1,6 @@
 # Trivia Game
 Think you're a big Seinfeld fan? Try this quiz based on the minutiae of Seinfeld.
+https://edcourtney74.github.io/TriviaGame/
 
 ## Features
   * Fifteen-question quiz that dives deep into Seinfeld trivia. New questions can easily be added to the questions array.
