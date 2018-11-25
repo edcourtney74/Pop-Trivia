@@ -48,7 +48,7 @@ img {
     margin-top: 20px;
 }
 
-#start, #restart {
+#start, .new-game {
     background-color: #0518b8;
     border: none;
     width: 90%;

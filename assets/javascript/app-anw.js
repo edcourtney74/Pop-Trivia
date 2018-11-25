@@ -150,6 +150,21 @@ function startGame() {
     $("#time-display").empty();
     $("#question-text").empty();
     $(".answer-button").empty();     
+    
+    // Reset all variables
+    correctTotal = 0;
+    incorrectTotal = 0;
+    timeoutTotal = 0;
+    questionsAsked = 0;
+    timer = 30;
+    intervalID;
+    answerGIF;
+    userAnswer = "";
+    userRank = 0;
+
+    // Hide menu button
+    $(".new-game").css("display", "none");
+
 }
 
 // Function to decrease countdown clock by 1 second
@@ -231,11 +246,11 @@ function displayAnswer() {
     // Set which screen to advance to in 8 seconds
     if (questionsAsked === (questions.length - 1)) {
         // if all questions have been asked, go to results screen
-        resultsTimer = setTimeout(displayFinalResults, 1000 * 5);
+        resultsTimer = setTimeout(displayFinalResults, 1000 * 1);
 
     } else {
         // if all questions haven't been asked, go to next question
-        resultsTimer = setTimeout(runTimer, 1000 * 5);
+        resultsTimer = setTimeout(runTimer, 1000 * 1);
     }
 
     // Check if answer was provided and correct
@@ -322,36 +337,8 @@ function displayFinalResults() {
         + "</p><p><strong>Total incorrect: </strong>" + incorrectTotal + "</p><p><strong>Total unanswered: </strong>" + timeoutTotal
         + "</p>");
 
-    // Display restart button
-    $("#restart").css("display", "block");
-}
-
-// Function that runs on click of restart button
-function restartGame() {
-    // Make display box bigger
-    $(".displaybox").css("height", "500px")
-    
-    // Empty text from results screen
-    $("#overall-rating").empty();
-    $("#overall-results").empty();
-    $("#gif-rating").empty();
-
-    // Reset all variables
-    correctTotal = 0;
-    incorrectTotal = 0;
-    timeoutTotal = 0;
-    questionsAsked = 0;
-    timer = 30;
-    intervalID;
-    answerGIF;
-    userAnswer = "";
-    userRank = 0;
-
-    // Display restart button
-    $("#restart").css("display", "none");
-
-    // Display first question
-    runTimer();
+    // Display menu button
+    $(".new-game").css("display", "block");
 }
 
 function stopTimer () {
