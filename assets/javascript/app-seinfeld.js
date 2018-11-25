@@ -189,7 +189,7 @@ var finalGIF;
 
 // FUNCTIONS ====================================================================
 
-// Function that runs on click of restart button
+// Function that runs on start
 function startGame() {
     // Empty text from results screen
     $("#overall-rating").empty();
@@ -200,7 +200,23 @@ function startGame() {
     $("#time-display").empty();
     $("#question-text").empty();
     $(".answer-button").empty();     
+    
+    // Reset all variables
+    correctTotal = 0;
+    incorrectTotal = 0;
+    timeoutTotal = 0;
+    questionsAsked = 0;
+    timer = 30;
+    intervalID;
+    answerGIF;
+    userAnswer = "";
+    userRank = 0;
+
+    // Hide menu button
+    $(".new-game").css("display", "none");
+
 }
+
 
 // Function to decrease countdown clock by 1 second
 function decrement() {
@@ -281,11 +297,11 @@ function displayAnswer() {
     // Set which screen to advance to in 8 seconds
     if (questionsAsked === (questions.length - 1)) {
         // if all questions have been asked, go to results screen
-        resultsTimer = setTimeout(displayFinalResults, 1000 * 8);
+        resultsTimer = setTimeout(displayFinalResults, 1000 * 1);
 
     } else {
         // if all questions haven't been asked, go to next question
-        resultsTimer = setTimeout(runTimer, 1000 * 8);
+        resultsTimer = setTimeout(runTimer, 1000 * 1);
     }
 
     // Check if answer was provided and correct
@@ -348,7 +364,6 @@ function displayFinalResults() {
     // Change height of displaybox
     $(".displaybox").css("height", "auto");
 
-
     // Calculate, assign overall ranking
     // If 90% correct:
     if (correctTotal >= (questions.length * .90)) {
@@ -367,7 +382,6 @@ function displayFinalResults() {
         userRank = "No soup for you! Time to watch more Seinfeld.";
         finalGif = "assets/images/seinfeld/jail.gif"
     }
-    console.log("User rank: " + userRank);
     
     // Display ranking
     $("#overall-rating").html("<h2 class='text-center'>" + userRank + "</h2>");
@@ -380,36 +394,8 @@ function displayFinalResults() {
         + "</p><p><strong>Total incorrect: </strong>" + incorrectTotal + "</p><p><strong>Total unanswered: </strong>" + timeoutTotal
         + "</p>");
 
-    // Display restart button
-    $("#restart").css("display", "block");
-}
-
-// Function that runs on click of restart button
-function restartGame() {
-    // Make display box bigger
-    $(".displaybox").css("height", "500px")
-    
-    // Empty text from results screen
-    $("#overall-rating").empty();
-    $("#overall-results").empty();
-    $("#gif-rating").empty();
-
-    // Reset all variables
-    correctTotal = 0;
-    incorrectTotal = 0;
-    timeoutTotal = 0;
-    questionsAsked = 0;
-    timer = 30;
-    intervalID;
-    answerGIF;
-    userAnswer = "";
-    userRank = 0;
-
-    // Display restart button
-    $("#restart").css("display", "none");
-
-    // Display first question
-    runTimer();
+    // Display menu button
+    $(".new-game").css("display", "block");
 }
 
 function stopTimer () {
@@ -483,14 +469,6 @@ $("#a4").on("click", function () {
     // Run function displayAnswer
     displayAnswer();
 });
-
-// Click function for restart button
-$("#restart").on("click", function () {
-    // Run function restartGame
-    restartGame();
-})
-
-
 
 // GAME PLAY============================================================
 $(document).ready(function () {
