@@ -1,0 +1,62 @@
+body {
+    background-image: url("../images/anw/anw_background.png");
+    background-size: 300%;
+    font-size: 18px;
+    color: white;
+}
+
+img {
+    display: block;
+    width: 400px;
+}
+
+.answer-button {
+    display: none;
+    background-color: #0518b8;
+    color: white;
+    font-size: 22px;
+    padding: 20px;
+}
+
+.displaybox {
+    background-color:#f20000;
+    height: auto;
+    margin: 140px 0px 0px 50px;
+    opacity: .8;
+}
+
+.final-gif {
+    width: 350px;
+    display: block;
+}
+
+.ninja-image {
+    max-width: 200%;
+    margin-top: 120px;
+}
+
+.question {
+    font-size: 25px;
+}
+
+.restart-button {
+    display: none;
+}
+
+#right-answer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#start, #restart {
+    background-color: #0518b8;
+    border: none;
+    width: 90%;
+    font-size: 30px;
+}
+
+@media only screen and (max-width: 786px) {
+    .ninja-image {
+        display: none;
+    }
+}

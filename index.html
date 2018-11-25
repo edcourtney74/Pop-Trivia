@@ -4,74 +4,35 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Seinfeld Trivia</title>
+    <title>Pop Trivia</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style-main.css" />
 </head>
 
 <body>
     <!-- Container for main display area -->
     <div class="container">       
-        <div class="row align-items-center mt-1">
-            <div class="col-md-7 displaybox rounded border border-light">
+        <div class="row">
+            <div class="col-md-7 offset-md-2 displaybox rounded border border-light">
                 <!-- Start screen -->
                 <div class="mt-3">
-                    <h1 class="text-center start-title">Trivia About Nothing</h1>
-                    <h3 class="text-center start-title">A Seinfeld minutiae quiz</h3>
-                    <p class="start-title text-center">The quiz is 15 questions long. You have 30 seconds to answer each question.</p>
+                    <h1 class="text-center start-title">Pop Culture Trivia</h1>
+                    <div class="dropdown mt-4 text-center mb-4">
+                        <a class="btn btn-secondary dropdown-toggle start" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Select your quiz
+                        </a>
+                      
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <a class="dropdown-item" href="seinfeld.html">Seinfeld</a>
+                          <a class="dropdown-item" href="anw.html">American Ninja Warrior</a>
+                        </div>
+                      </div>
 
-                <!-- Start button for home screen -->
-                    <button type="button" id="start" class="btn btn-primary ml-4 mt-4">START</button>
+
                 </div>                
 
-                <!-- Question Board -->
-                <!-- Time remaining display -->
-                <h4 id="time-display" class="text-center"></h4>
-
-                <!-- Question display -->
-                <div class="ml-2 mt-4">
-                    <div id="question-text" class="question"></div>
-
-                <!-- Answer display - one button for each answer -->
-                <button type="button" class="btn btn-info btn-block text-left answer-button border border-light mt-2" id="a1"></button>
-                <button type="button" class="btn btn-info btn-block text-left answer-button border border-light mt-0" id="a2"></button>
-                <button type="button" class="btn btn-info btn-block text-left answer-button border border-light mt-0" id="a3"></button>
-                <button type="button" class="btn btn-info btn-block text-left answer-button border border-light mt-0" id="a4"></button> 
-
-                </div>
-
-                <!-- Response Board -->
-                <!-- Right, wrong or time out display -->
-                <h1 id="right-wrong" class="text-center"></h1>
-
-                <!-- If correct answer, displays fun fact; otherwise shows correct answer  -->
-                <div id="right-answer"></div>
-
-                <!-- GIF display -->
-                <div id="gif-display" class="mt-3 mx-auto"></div>
-
-                <!-- Final Results Board -->
-                <!-- Rating given based on overall score -->
-                <div id="overall-rating"></div>
-                
-                <!-- New section to run GIF and results side-by-side -->
-                <div class="row">
-                    <!-- Display correct, incorrect, out of time answers to display -->
-                    <div class="col-md-4">
-                        <div id="overall-results">
-                        </div>
-                    </div>    
-                    <div class="col-md-6">
-                        <!-- GIF based on results -->
-                        <div id="gif-rating">
-                    </div>               
-                </div>
-                <!-- Restart button -->
-                <button type="button" id="restart" class="btn btn-primary restart-button ml-4 mt-4 mb-2">TRY AGAIN</button>
-            </div>
-        </div>
     </div>
 
 
@@ -83,7 +44,6 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-    <script src="assets/javascript/app.js"></script>
 
 </body>
 
