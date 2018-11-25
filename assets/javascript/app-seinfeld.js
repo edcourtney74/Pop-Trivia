@@ -297,11 +297,11 @@ function displayAnswer() {
     // Set which screen to advance to in 8 seconds
     if (questionsAsked === (questions.length - 1)) {
         // if all questions have been asked, go to results screen
-        resultsTimer = setTimeout(displayFinalResults, 1000 * 1);
+        resultsTimer = setTimeout(displayFinalResults, 1000 * 8);
 
     } else {
         // if all questions haven't been asked, go to next question
-        resultsTimer = setTimeout(runTimer, 1000 * 1);
+        resultsTimer = setTimeout(runTimer, 1000 * 8);
     }
 
     // Check if answer was provided and correct
