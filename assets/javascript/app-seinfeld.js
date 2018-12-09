@@ -301,7 +301,7 @@ function displayAnswer() {
 
     } else {
         // if all questions haven't been asked, go to next question
-        resultsTimer = setTimeout(runTimer, 1000 * 1);
+        resultsTimer = setTimeout(runTimer, 1000 * 8);
     }
 
     // Check if answer was provided and correct
