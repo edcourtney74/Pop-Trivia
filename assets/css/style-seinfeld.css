@@ -14,13 +14,15 @@ img {
     background-color: #84a7d1;
     color: black;
     padding: 20px;
+    white-space: normal;
 }
 
 .displaybox {
     background-color:#c7c0c2;
-    height: auto;
-    margin: 140px 0px 0px 50px;
+    height: auto !important;
+    margin-top: 140px;
     opacity: .9;
+    width: 100%;
 }
 
 .final-gif {
@@ -44,6 +46,37 @@ img {
 #start, .new-game {
     background-color: #84a7d1;
     border: none;
-    width: 90%;
+    width: 100%;
     font-size: 30px;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 992px) {
+    body {
+        background: #574539;
+    }
+
+    .displaybox {
+        margin: 2% 0% 5% 0% !important;
+        width: 90%;
+    }
+
+    #overall-results {
+        text-align: center;
+        margin-top: 2%;
+    }
+
+    .final-gif {
+        float: none !important;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .displaybox {
+        margin: 0% 0% 0% 0% !important;
+        width: 100%;
+    }
 }
