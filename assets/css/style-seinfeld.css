@@ -22,7 +22,6 @@ img {
     height: auto !important;
     margin-top: 140px;
     opacity: .9;
-    width: 100%;
 }
 
 .final-gif {
@@ -75,8 +74,12 @@ img {
 }
 
 @media screen and (max-width: 576px) {
+    .container {
+        max-width: none;
+    }
+    
     .displaybox {
         margin: 0% 0% 0% 0% !important;
-        width: auto;
+        width: 100%;
     }
 }
